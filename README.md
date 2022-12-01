@@ -32,8 +32,18 @@
 - Машина(товар)
 
 ## 4. Схематично изобразить не нормальзованную схему БД:
-
+![image](https://github.com/nikita122002/Labs_DB/blob/main/lab1.png)
 ## 5. Описать каждую сущность:
+-Клиент (связь с сущностями "Cart" типа one-to-one, "PurshaseOrder" типа one to many)
+| Имя поля | Тип    | Описание  | Ограничения   |
+|----------|---------|---------|---------------|
+|CustomerID |smallserial |первичный ключ |PRIMARY KEY |
+|Name |text |имя клиента |NOT NULL |
+|Surname|text |фамилия клиента |NOT NULL |
+|Patronymic |text |отчество клиента |NOT NULL |
+|Phone |numeric|номер телефона |UNIQUE |
+|PassportNumber |numeric |номер паспорта |UNIQUE |
+|BranchID |smallserial |внешний ключ к автосалону в котором находится пользователь |FOREIGN KEY |
   
   
   
