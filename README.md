@@ -32,28 +32,25 @@
 - Список товаров корзины
 - Машина(товар)
 - Продажа(товара)
+-Лог пользователя
+-Данные пользователей
 
 ## 4. Схематично изобразить не нормальзованную схему БД:
-![image](https://github.com/nikita122002/Labs_DB/blob/main/lab2.png)
+![image](https://github.com/nikita122002/Labs_DB/blob/main/lab2t.png)
 ## 5. Описать каждую сущность
 -Клиент (связь с сущностями "Cart" типа one-to-one, "PurshaseOrder" типа one to many)
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |CustomerID |smallserial |первичный ключ |PRIMARY KEY |
-|Name |text |имя клиента |NOT NULL |
-|Surname|text |фамилия клиента |NOT NULL |
-|Patronymic |text |отчество клиента |NOT NULL |
-|Phone |numeric|номер телефона |UNIQUE |
+|PersonalDataID|smallserial |внешний ключ к данным  пользователя |FOREIGN KEY |
 |PassportNumber |numeric |номер паспорта |UNIQUE |
 |BranchID |smallserial |внешний ключ к автосалону в котором находится пользователь |FOREIGN KEY |
 
--Работник(связь с сущностями "PurshaseOrder" типа one-to-many)
+-Работник(связь с сущностями "PurshaseOrder" типа one-to-many , "Sale" тип one to many)
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |EmployeeID |smallserial |первичный ключ |PRIMARY KEY |
-|Name |text |имя сотрудника |NOT NULL |
-|Surname|text |фамилия сотрудника |NOT NULL |
-|Patronymic |text |отчество сотрудника |NOT NULL |
+|PersonalDataID|smallserial |внешний ключ к данным  пользователя |FOREIGN KEY |
 |DateOfBirth |date |дата рождения |NOT NULL  |
 |WorkExperience |smallint |стаж работы |NOT NULL |
 |Position |text |занимаемая должность |NOT NULL |
@@ -63,8 +60,7 @@
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |ProviderID |smallserial |первичный ключ |PRIMARY KEY |
-|Name |text |имя поставщика |NOT NULL |
-|Phone |numeric|номер телефона |UNIQUE|
+PersonalDataID|smallserial |внешний ключ к данным  пользователя |FOREIGN KEY |
 |Email |text |почта поставщика |NOT NULL | 
  
 -Поставки
@@ -73,7 +69,7 @@
 |DeliveryID|smallserial |первичный ключ |PRIMARY KEY |
 |Date|date |дата поставки |NOT NULL  |
 |Method|text|способ доставки|NOT NULL|
-|Price|money|сумма поставки|NOT NULL|
+|DeliveryPrice|money|сумма поставки|NOT NULL|
 |ProviderID|smallserial|внешний ключ к поставщику осуществляющему поставки|FOREIGN KEY|
 |CarID|smallserial|внешний ключ к товарам в поставке|FOREIGN KEY|
 |BranchID|smallserial|внешний ключ к автосалону в который осуществляется поставка|FOREIGN KEY|
@@ -82,8 +78,8 @@
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |BranchID|smallserial|первичный ключ|PRIMARY KEY|
-|Adress|text|адрес автосалона|NOT NULL|
-|Name|text|название автосалона|NOT NULL|
+|BranchAdress|text|адрес автосалона|NOT NULL|
+|BranchName|text|название автосалона|NOT NULL|
 
 -Заказ (связь с сущностями "Employee", "Branch", "Customer", "Car","Provider" типа one-to-many)
 | Имя поля | Тип    | Описание  | Ограничения   |
@@ -117,7 +113,7 @@
 |Brand|text|марка машины|NOT NULL |
 |ReleaseYear|date|год выпуска|NOT NULL |
 |Color|text|цвет машины|NOT NULL |
-|Price|money|цена машины|NOT NULL |
+|CarPrice|money|цена машины|NOT NULL |
 |body type|text|тип кузова|NOT NULL |
 |CountryOfAssembly|text|страна сборки|NOT NULL |
 |BranchID|smallserial|внешний ключ на филиал которому принадлежит машина|FOREIGN KEY|
@@ -127,8 +123,27 @@
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |SaleID|smallserial|первичный ключ|PRIMARY KEY|
-||CarID|smallserial|внешний ключ на машину которую покупают|FOREIGN KEY|
-|Price|money|сумма покупки||
+|CarID|smallserial|внешний ключ на машину которую покупают|FOREIGN KEY|
+|SalePrice|money|сумма покупки||
 |CustomerID|smallserial|внешний ключ на покупателя|FOREIGN KEY|
 |BranchID|smallserial|внешний ключ на филиал в котором осуществляется покупка|FOREIGN KEY|
 |EmployeeID |smallserial |внешний ключ на сотрудника оформившего покупку|FOREIGN KEY |
+
+- Лог пользователя 
+
+| Имя поля | Тип    | Описание  | Ограничения   |
+|----------|---------|---------|---------------|
+|LogID |smallserial  | Первичный ключ    |PRIMARY KEY |
+|PersonalDataID |smallserial |Внешний ключ для просмотра кем было сделано изменение  |FOREIGN KEY | 
+|LogType | text| Вывод типа действия |NOT NULL | 
+|LogMsg |text | Вывод информации о действии |NOT NULL|
+
+-Данные пользователя
+| Имя поля | Тип    | Описание  | Ограничения   |
+|----------|---------|---------|---------------|
+|PersonalDataID|smallserial  | Первичный ключ    |PRIMARY KEY |
+|Name |text |имя сотрудника |NOT NULL |
+|Surname|text |фамилия сотрудника |NOT NULL |
+|Patronymic |text |отчество сотрудника |NOT NULL |
+|Phone |numeric|номер телефона |UNIQUE |
+
