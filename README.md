@@ -32,7 +32,7 @@
 - Машина(товар)
 
 ## 4. Схематично изобразить не нормальзованную схему БД:
-![image](https://github.com/nikita122002/Labs_DB/blob/main/lab1.png)
+![image](https://github.com/nikita122002/Labs_DB/blob/main/l1.png)
 ## 5. Описать каждую сущность:
 -Клиент (связь с сущностями "Cart" типа one-to-one, "PurshaseOrder" типа one to many)
 | Имя поля | Тип    | Описание  | Ограничения   |
