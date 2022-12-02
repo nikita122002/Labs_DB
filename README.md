@@ -54,23 +54,23 @@
 |PersonalDataID|smallserial |внешний ключ к данным  пользователя |FOREIGN KEY |
 |DateOfBirth |date |дата рождения |NOT NULL  |
 |WorkExperience |smallint |стаж работы |NOT NULL |
-|Position |text |занимаемая должность |NOT NULL |
+|Position |varchar(50) |занимаемая должность |NOT NULL |
 |BranchID |smallserial |внешний ключ к автосалону в котором работает сотрудник |FOREIGN KEY |
 
 -Поставщик(связь с сущностями "PurshaseOrder" и "Delivery" типа one-to-many)
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |ProviderID |smallserial |первичный ключ |PRIMARY KEY |
-|ProviderName|text|название компании поставщика|NOT NULL|
-|ProviderPhone|text|телефон компании поставщика|NOT NULL|
-|Email |text |почта поставщика |NOT NULL | 
+|ProviderName|varchar(50)|название компании поставщика|NOT NULL|
+|ProviderPhone|numeric|телефон компании поставщика|NOT NULL|
+|Email |varchar(50) |почта поставщика |NOT NULL | 
  
 -Поставки
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |DeliveryID|smallserial |первичный ключ |PRIMARY KEY |
 |Date|date |дата поставки |NOT NULL  |
-|Method|text|способ доставки|NOT NULL|
+|Method|varchar(60)|способ доставки|NOT NULL|
 |DeliveryPrice|money|сумма поставки|NOT NULL|
 |ProviderID|smallserial|внешний ключ к поставщику осуществляющему поставки|FOREIGN KEY|
 |CarID|smallserial|внешний ключ к товарам в поставке|FOREIGN KEY|
@@ -80,8 +80,8 @@
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |BranchID|smallserial|первичный ключ|PRIMARY KEY|
-|BranchAdress|text|адрес автосалона|NOT NULL|
-|BranchName|text|название автосалона|NOT NULL|
+|BranchAdress|varchar(60)|адрес автосалона|NOT NULL|
+|BranchName|varchar(30)|название автосалона|NOT NULL|
 
 -Заказ 
 | Имя поля | Тип    | Описание  | Ограничения   |
@@ -112,12 +112,12 @@
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |CarID|smallserial|первичный ключ|PRIMARY KEY|
-|Brand|text|марка машины|NOT NULL |
+|Brand|varchar(30)|марка машины|NOT NULL |
 |ReleaseYear|date|год выпуска|NOT NULL |
-|Color|text|цвет машины|NOT NULL |
+|Color|varchar(30)|цвет машины|NOT NULL |
 |CarPrice|money|цена машины|NOT NULL |
-|body type|text|тип кузова|NOT NULL |
-|CountryOfAssembly|text|страна сборки|NOT NULL |
+|body type|varchar(30)|тип кузова|NOT NULL |
+|CountryOfAssembly|varchar(30)|страна сборки|NOT NULL |
 |BranchID|smallserial|внешний ключ на филиал которому принадлежит машина|FOREIGN KEY|
 |IsBought|boolean|товар можно добавлять и удалять из корзины||
 
@@ -137,15 +137,15 @@
 |----------|---------|---------|---------------|
 |LogID |smallserial  | Первичный ключ    |PRIMARY KEY |
 |PersonalDataID |smallserial |Внешний ключ для просмотра кем было сделано изменение  |FOREIGN KEY | 
-|LogType | text| Вывод типа действия |NOT NULL | 
-|LogMsg |text | Вывод информации о действии |NOT NULL|
+|LogType | varchar(60)| Вывод типа действия |NOT NULL | 
+|LogMsg |varchar(60) | Вывод информации о действии |NOT NULL|
 
 -Данные пользователя
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |PersonalDataID|smallserial  | Первичный ключ    |PRIMARY KEY |
-|Name |text |имя сотрудника |NOT NULL |
-|Surname|text |фамилия сотрудника |NOT NULL |
-|Patronymic |text |отчество сотрудника |NOT NULL |
+|Name |varchar(30) |имя сотрудника |NOT NULL |
+|Surname|varchar(30) |фамилия сотрудника |NOT NULL |
+|Patronymic |varchar(30)|отчество сотрудника |NOT NULL |
 |Phone |numeric|номер телефона |UNIQUE |
 
