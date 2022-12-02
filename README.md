@@ -61,9 +61,9 @@
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |ProviderID |smallserial |первичный ключ |PRIMARY KEY |
-|ProviderName|varchar(50)|название компании поставщика|NOT NULL|
-|ProviderPhone|numeric|телефон компании поставщика|NOT NULL|
-|Email |varchar(50) |почта поставщика |NOT NULL | 
+|ProviderName|varchar(50)|название компании поставщика|NOT NULL,UNIQUE|
+|ProviderPhone|numeric|телефон компании поставщика|NOT NULL,UNIQUE|
+|Email |varchar(50) |почта поставщика |NOT NULL,UNIQUE | 
  
 -Поставки
 | Имя поля | Тип    | Описание  | Ограничения   |
@@ -80,7 +80,7 @@
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |BranchID|smallserial|первичный ключ|PRIMARY KEY|
-|BranchAdress|varchar(60)|адрес автосалона|NOT NULL|
+|BranchAdress|varchar(60)|адрес автосалона|NOT NULL,UNIQUE|
 |BranchName|varchar(30)|название автосалона|NOT NULL|
 
 -Заказ 
