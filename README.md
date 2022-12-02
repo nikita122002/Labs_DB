@@ -119,7 +119,7 @@
 |body type|text|тип кузова|NOT NULL |
 |CountryOfAssembly|text|страна сборки|NOT NULL |
 |BranchID|smallserial|внешний ключ на филиал которому принадлежит машина|FOREIGN KEY|
-|IsBought|Bool|товар можно добавлять и удалять из корзины||
+|IsBought|boolean|товар можно добавлять и удалять из корзины||
 
 -Продажа(товара)
 | Имя поля | Тип    | Описание  | Ограничения   |
