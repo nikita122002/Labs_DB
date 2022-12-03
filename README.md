@@ -37,7 +37,7 @@
 
 
 ## 4. Схематично изобразить не нормальзованную схему БД:
-![image](https://github.com/nikita122002/Labs_DB/blob/main/lab21.png)
+![image](https://github.com/nikita122002/Labs_DB/blob/main/lab2true.png)
 ## 5. Описать каждую сущность
 -Клиент (связь с сущностями "Cart" типа one-to-one, "PurshaseOrder" ,"Sale" типа one to many , )
 | Имя поля | Тип    | Описание  | Ограничения   |
@@ -114,7 +114,7 @@
 |Brand|varchar(30)|марка машины|NOT NULL |
 |ReleaseYear|date|год выпуска|NOT NULL |
 |Color|varchar(30)|цвет машины|NOT NULL |
-|CarPrice|money|цена машины|NOT NULL |
+|CarPrice|numeric|цена машины|NOT NULL |
 |body type|varchar(30)|тип кузова|NOT NULL |
 |CountryOfAssembly|varchar(30)|страна сборки|NOT NULL |
 |BranchID|smallserial|внешний ключ на филиал которому принадлежит машина|FOREIGN KEY|
@@ -125,7 +125,7 @@
 |----------|---------|---------|---------------|
 |SaleID|smallserial|первичный ключ|PRIMARY KEY|
 |CarID|smallserial|внешний ключ на машину которую покупают|FOREIGN KEY|
-|SalePrice|money|сумма покупки||
+|SalePrice|numeric|сумма покупки||
 |CustomerID|smallserial|внешний ключ на покупателя|FOREIGN KEY|
 |BranchID|smallserial|внешний ключ на филиал в котором осуществляется покупка|FOREIGN KEY|
 |EmployeeID |smallserial |внешний ключ на сотрудника оформившего покупку|FOREIGN KEY |
