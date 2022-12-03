@@ -1,15 +1,16 @@
 INSERT INTO PersonalData
 VALUES
-()
-()
+(1,'Ivan','Ivanov','Ivanovich',334353535)
+(2,'Petr','Ivanov','Ivanovich',325928592)
+
 INSERT INTO USER
 VALUES
-()
-()
-INSERT INTO PersonalData
+(1,'уведомление','добавил товар в корзину',1)
+
+INSERT INTO Provider
 VALUES
-()
-()
+(1,'audi@mail.ru','audi',335099)
+
 
 INSERT INTO BRANCH
 VALUES
