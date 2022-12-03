@@ -61,8 +61,7 @@
 | Имя поля | Тип    | Описание  | Ограничения   |
 |----------|---------|---------|---------------|
 |ProviderID |smallserial |первичный ключ |PRIMARY KEY |
-|ProviderName|varchar(50)|название компании поставщика|NOT NULL,UNIQUE|
-|ProviderPhone|numeric|телефон компании поставщика|NOT NULL,UNIQUE|
+|PersonalDataID|smallserial |внешний ключ к данным  пользователя |FOREIGN KEY |
 |Email |varchar(50) |почта поставщика |NOT NULL,UNIQUE | 
  
 -Поставки
